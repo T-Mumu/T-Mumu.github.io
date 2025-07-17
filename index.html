@@ -307,6 +307,255 @@
 
 
   
+    <article id="post-Debug Secret Script(秘籍)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Debug-Secret-Script"><a href="#Debug-Secret-Script" class="headerlink" title="Debug Secret Script"></a><em><strong>Debug Secret Script</strong></em></h1><h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><p>Debug也是算法时一种能力的体现，在算法练习的过程中，不光要学习各种算法知识（c++，stl，数据结构等），还需要学会调试自己的代码。每一个人在所遇到的bug是不相同的，只是希望能给初学者在debug的时候，提供一些经验，我所写下的内容不多，仅作为参考，希望能给其他人带来一些帮助。</p>
+<h2 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h2><p>要确保自己的心态是平静的。</p>
+<p>每一次的提交，都应该谨慎思考。</p>
+<p>在调试的过程中，应该放弃对代码的自信（简单说应该以旁观者的角度去看自己的代码，当你对这个代码的信任度为0，越能发现问题所在）</p>
+<p>同时，调试者应该拓展的能力有灵活使用IDE，并且明白IDE返回的错误信息；</p>
+<p>将程序分为模块，使用倒推的方式进行测试（或者在开始前就一步一步的进行测试）；</p>
+<p>在if 和for 这种内含条件的函数中，往往是最容易出现错误的；</p>
+<p>最重要的一点是，$\textcolor{Red}{需要对题目所阐述的问题有着清楚的了解}$，这样，在debug过程中思路会越来越清晰（在团队赛的时候，在自己读完题目之后，要和队友进行沟通，了解对方的思路，判断目标实现的可能性）</p>
+<h2 id="比赛意见："><a href="#比赛意见：" class="headerlink" title="比赛意见："></a>比赛意见：</h2><p>1.请不要把变量名称定义的太抽象！！！（到最后，不光你看不懂，队友也看不懂）</p>
+<p>2.如若出现，电脑死机，或者主动关机的情况下，千万不要随意乱动，请及时联系工作人员。</p>
+<p>3.如果在正式开始的时候，发现无法进入比赛要求的系统，需要及时联系工作人员。</p>
+<p>4.发放账户密码的纸张，请自己盖好，防止其他队伍登录，帮你增加罚时！！！</p>
+<p>5.注意观察榜单，挑简单的先做。</p>
+<p>6.注意！！！不要在比赛时间尚未开始时翻看试卷。</p>
+<p>7.不要有心理压力，放平心态。</p>
+<p>8.不要犯罪！！！（在提交显示错误之后，请认真修改）         </p>
+<p>9.如果遇到提交结果为undefined，请暂停提交（测题机坏了），如果继续提交，很有可能一堆wa下去。</p>
+<p>![image-20241103191540313](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241103191540313.png)</p>
+<p>10.千万不要按Ctrl+Alt+F10,会使电脑死机</p>
+<p>11.注意好保存自己的代码，防止出意外。</p>
+<h2 id="个人感悟："><a href="#个人感悟：" class="headerlink" title="个人感悟："></a>个人感悟：</h2><p>放平心态，这也是我在经历数次的折磨之后，明白的一件事情，专心调试就好，有什么可在意的呢？（虽然有位学长总是在强调“犯罪”的问题，但这只是为了让你重视和珍惜每一次提交的机会，同时不要太过有压力，就算一题都做不对又怎么样呢？）做你自己，尽力就好，享受过程，debug是痛苦的，但是在这一次次漫长而又枯燥的过程中，我们理应学会苦中作乐。</p>
+<p>​	<em><strong>$\textcolor{Orange }{慢下来，一步一步，走完就好。}$</strong></em>											——数技2401沐沐</p>
+<h2 id="一-初识bug-（基础bug）"><a href="#一-初识bug-（基础bug）" class="headerlink" title="一.初识bug:（基础bug）"></a>一.初识bug:（基础bug）</h2><p>在刚开始学习的过程中，所遇见的bug，我在此称之为基础bug,基础bug指的是IDE所能识别出的bug。</p>
+<p>所以，面对基础bug的最好解决方式就是———-打开$\textcolor{Red}{IDE}$</p>
+<h3 id="常见的基础bug"><a href="#常见的基础bug" class="headerlink" title="常见的基础bug:"></a>常见的基础bug:</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如：C语言中<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a);       <span class="comment">//常见的错误就是忘记输入了&amp;（取地址符）</span></span><br><span class="line"></span><br><span class="line">​			<span class="built_in">scanf</span>(<span class="string">&quot;%   &quot;</span>,&amp;    );				  <span class="comment">//%后面的格式转换码与数据类型没有对应   如double 对应%lf</span></span><br><span class="line"></span><br><span class="line">​			自定义函数时，忘记<span class="keyword">return</span>;</span><br></pre></td></tr></table></figure>
+
+<p>​			{}问题，很多时候，由于自己的复制剪贴，可能会使得}漏掉，这个时候点击测验的时候，可能会有error’}’这种提示，可以叫做反馈，因而要注意在写代码的过程中，是否忘记 ‘}’ 符号。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例如：<span class="type">int</span> a;</span><br><span class="line">	 <span class="type">int</span> b;</span><br><span class="line">	 <span class="type">int</span> b=<span class="number">1024</span>;(报错)	<span class="comment">//不能连续定义同一个变量的数据类型，如果要进行修改可以选择（float）b;</span></span><br><span class="line">	 					 <span class="comment">//进行强制修改其类型。</span></span><br></pre></td></tr></table></figure>
+
+<p>这里需要注意的是，不要将同一个变量重复定义，如果因为代码所需要的变量过多，可以用以下方式进行优化。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span>;a&lt;<span class="number">5</span>;a++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span>;a&lt;<span class="number">5</span>;a++)&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于变量a是在for循环内部定义的，因此可以重复定义。（有一定风险就是，你得确保这个变量不需要保存数据什么的，因为在外界使用的话，不会显示该变量）</p>
+<h3 id="！！！-函数传数组："><a href="#！！！-函数传数组：" class="headerlink" title="！！！.函数传数组："></a>！！！.函数传数组：</h3><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241104202811317.png)</p>
+<p><em><strong>正确传递数组的方式为：</strong></em></p>
+<p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241104203719254.png)</p>
+<p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241104203750361.png)</p>
+<h2 id="二-反馈："><a href="#二-反馈：" class="headerlink" title="二.反馈："></a>二.反馈：</h2><p>在debug的过程中，反馈尤为重要，常见的做法是，在每一个模块的内部，放置一条语句 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：<span class="built_in">printf</span>(<span class="string">&quot;123&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p> 看看该语句是否在判断语句的内部中实现。(自行找到反馈，计算机不能告诉到底是哪个环节输入错误，但是你可以自己验证并得到反馈)</p>
+<p>大部分IDE和做题系统，上面的反馈都是英文的，不要求把单词都认的出来，但是一定要学会找到关键信息（真正的错误提示）；</p>
+<h2 id="三-检测时的几种错误："><a href="#三-检测时的几种错误：" class="headerlink" title="三.检测时的几种错误："></a>三.检测时的几种错误：</h2><p><em><strong>$\textcolor{Red}{检测时，要注意输入的是案例几，别对着案例一进行检测，然后对着案例二的答案进行修改！！！}$</strong></em></p>
+<h3 id="1-编译错误："><a href="#1-编译错误：" class="headerlink" title="1.编译错误："></a>1.编译错误：</h3><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241030012935285.png)</p>
+<p>这也是这里面最容易修改的错误，一般根据反馈，找出关键信息，即刻修改。</p>
+<p>例如此案例，能清楚的看见计算机将错误的语句反馈给我们，</p>
+<p>当然，如果看不懂计算机告诉你的信息，建议一点点的开始看，从找关键符号，和使用翻译软件等方式解决。</p>
+<h3 id="2-运行超时："><a href="#2-运行超时：" class="headerlink" title="2.运行超时："></a>2.运行超时：</h3><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241030015335382.png)</p>
+<p>基本上就是for等循环出现了问题，一般要关注的点有，循环条件，循环变量是否在函数内部进行改变，以至于陷入死循环。</p>
+<p>for循环内部无范围限制</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">5</span>;)	<span class="comment">//缺少了i++(变量未改变)</span></span><br></pre></td></tr></table></figure>
+
+<p>$\textcolor{Red}{			ps : while循环比较特殊，它可以存入特殊循环条件}$</p>
+<p>又或者是for循环中出现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;n;j++) //循环变量名称错误！！！</span><br></pre></td></tr></table></figure>
+
+<p>若是使用while循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请检查：</span><br><span class="line">while(是否是死循环？)</span><br><span class="line">while（是否判断结束循环的条件中，变量的范围是否没考虑）</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-无法在规定时间内运行："><a href="#3-无法在规定时间内运行：" class="headerlink" title="3.无法在规定时间内运行："></a>3.无法在规定时间内运行：</h3><p>只有一种原因，那就是时间复杂度过高，导致超时，解决方法很简单，通过if等其他手段，减少for循环的使用。</p>
+<p>从某种层面来讲，时间复杂度过高的问题是众多bug里面最明确的bug，解决的方式可以选择更换做题思路，可能是自己将简单问题复杂化了，算法题的思路有很多种，如果可以，请不要将自己的思维固化。</p>
+<p>有些题是无法单纯通过暴力枚举解决的，暴力枚举的无脑，换来的代价就是极高的时间复杂度。</p>
+<p>可以去学习一些优化操作，如剪枝等；</p>
+<p>在算法的学习中，需要去学会计算时间复杂度</p>
+<h3 id="4-段错误："><a href="#4-段错误：" class="headerlink" title="4.段错误："></a>4.段错误：</h3><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241030015232302.png)</p>
+<p>段错误:您的程序发生段错误，可能是数组越界，堆栈溢出（比如，递归调用层数太多）等情况引起。</p>
+<p>一般情况，需要检查的是数组是否开的过多，导致数组越界（数组越界，是因为连续开两个数组，在内存中的排布其实是相连的）</p>
+<p>解决方式：如果自己定义的数组过多，可以考虑删除一个数组。</p>
+<p>​					检查自己的数组容量是否开的过大（一般范围是在1e8左右）</p>
+<p>​					下标是否正确？一般是在循环中查看是否循环内容出了问题</p>
+<p>​					$\textcolor{Red}{递归}$一般不会出现这种情况，并不优先考虑</p>
+<p>​					ps:检查到底是哪个环节出现问题，通过将部分语句变成注释&#x2F;&#x2F;，看看是否仍然发生段错误，如果到了最开始时，仍出现段错误，那么只有一种结果就是数组开的过于庞大。</p>
+<p>！！！在一些题中，不要根据题目中出现数组，就一味的去使用数组，当出现数组越界的时候，最好是转换思路，同时减少或者避免数组的使用</p>
+<p>！！！在做题中，请减少定义二维数组</p>
+<p>！！！</p>
+<h3 id="5-输入格式不符："><a href="#5-输入格式不符：" class="headerlink" title="5.输入格式不符："></a>5.输入格式不符：</h3><p>这就是自己本身审题不够严谨的原因了，去检查最后输出格式是否遗漏”  “(空格)</p>
+<p>还有保留几位小数点</p>
+<p>如果是四舍五入的问题，注意使用round函数（四舍五入到整数）。使用方式：通过*保留位数的10次幂，再将其除掉。</p>
+<h3 id="6-正确率为-："><a href="#6-正确率为-：" class="headerlink" title="6.正确率为**%："></a>6.正确率为**%：</h3><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241030014926374.png)</p>
+<p>个人认为，这种情况难改程度和无法在规定时间内运行</p>
+<p>如果正确率在50%附近徘徊，说明此题可能分奇数和偶数，随后将输入示例，看看是否和奇数和偶数有关系。</p>
+<p>如果正确率较低，那么基本上，切换示例就能够看出来问题出现在哪。(可能是数据范围小了)</p>
+<h2 id="四-输入格式与预期不符合："><a href="#四-输入格式与预期不符合：" class="headerlink" title="四.输入格式与预期不符合："></a>四.输入格式与预期不符合：</h2><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\微信图片_20241029010711.png)</p>
+<p>如此题所示，在使用C++输入时候，如果将一串数据分单个数字存入其中，cin无法实现，请选择使用C语言中的scanf(“%1d”,a);</p>
+<p>%1d意味着，每次只存入一个数。</p>
+<p>$\textcolor{Red}{所以在做题的过程中，需要注意示例的输入格式。}$</p>
+<p>ps:虽然C++在输入输出等层面变得更加便利和迅速，但是C语言的某些功能，仍然是必不可少的，因此，在拓展C++语言的时候，也不要忘记巩固C语言的使用。</p>
+<p>！！！同时，观察运行时间是否超时，这种时候一般为超时，以至于有些案例无法正常通过，需要改变解题思路。</p>
+<h2 id="五-输入结果为空："><a href="#五-输入结果为空：" class="headerlink" title="五.输入结果为空："></a>五.输入结果为空：</h2><p>对于debug过程中，最怕的就是没有收获任何的反馈，因此在面临输入结果为空的时候，优先去查看自己的输出语句。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例如：<span class="keyword">for</span>(  ; ; )&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">&quot;123&quot;</span>;<span class="comment">//去检查for循环是否出现问题。</span></span><br><span class="line">			&#125;</span><br><span class="line">	<span class="keyword">for</span>( ; ; )&#123;</span><br><span class="line">		c++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;c&lt;&lt;endl;	<span class="comment">//如果C的输出为空，寻找C变量上一次出现的位置是在什么位置，随后检查相应的语句。</span></span><br></pre></td></tr></table></figure>
+
+<p>除此之外，还有各种判断语句，都可能影响最后输出为空的情况。</p>
+<p>如果是for循环和if的嵌套情况之下，可以通过</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;语句&quot;</span>&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+
+<p>判断是哪个环节出现错误。</p>
+<p>同时，在定义变量的情况之下，有的时候需要将变量进行初始化&#x3D;0</p>
+<p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241030221314077.png)</p>
+<p>例如这道题：去除前导0，不只是出现0408这种情况，还有可能会出现00408，因此在debug的过程中，通过判断数组的第一位是否为0是远远不够的，而如果只判断数组是否为0，然后为0不输出0，也是不可取的，因为这样的话，只会留下48。（只判断是否为0，并不是删除前导0，是删除数组中所有的0）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;c;p++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b[p]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(;p&lt;c;p++)</span><br><span class="line">       cout&lt;&lt;b[p];<span class="comment">//位置正确</span></span><br><span class="line">    <span class="comment">//for(int i=p;i&lt;c;i++)</span></span><br><span class="line">    <span class="comment">//cout&lt;&lt;b[i];   </span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>错误代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;c;p++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b[p]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i&lt;c;i++)</span><br><span class="line">    cout&lt;&lt;b[i];   </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>错误原因：意外使用break;同时break是在for循环中放置，并非是放置在if中，因此造成了输出结果为空。</p>
+<p>$\textcolor{green}{不难发现，有些时候，都是一些很简单的bug阻止结果的的正确}$</p>
+<p>$\textcolor{Red}{不够不要因此变得消沉，请相信自己，下一次，绝对不会犯相同的错误。正视自己的失败，才能慢慢变得更加强大}$</p>
+<h2 id="六-书写代码的一些小建议："><a href="#六-书写代码的一些小建议：" class="headerlink" title="六.书写代码的一些小建议："></a>六.书写代码的一些小建议：</h2><h3 id="1-定义变量："><a href="#1-定义变量：" class="headerlink" title="1.定义变量："></a>1.定义变量：</h3><p>在定义整型变量的时候，尽量使用long long 而非int，这样可以不用判断数据是否超过Int型。</p>
+<p>同理，在定义浮点型的时候，选择使用double，精确度更高，确保小数点的后几位都是正确的。</p>
+<p>如果觉得long long在输入过于繁琐，可以选择在开头</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll a;<span class="comment">//直接输入ll.就代表着long long</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时，定义变量名称的时候，尽量避免使用o作为变量名称（因为o可能会和零混用</p>
+<p>）</p>
+<h3 id="2-观感："><a href="#2-观感：" class="headerlink" title="2.观感："></a>2.观感：</h3><p>尽量让自己代码的长度缩减一点</p>
+<p>使用三项表达式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表达式<span class="number">1</span>？表达式<span class="number">2</span>：表达式<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>格式改变：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">例如：</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;		<span class="comment">//将&#x27;&#123;&#x27;移动到和for同一行的位置来</span></span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;110&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">如果是另一种形式：</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;110&quot;</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，优化后的代码减少了一行，这样看可能不太直观，那如果很多个for循环叠加的话？</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">	 <span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;m;p++)&#123;</span><br><span class="line">	 cout&lt;&lt;<span class="string">&quot;110&quot;</span>;</span><br><span class="line">	 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">如若不然：</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	 <span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;m;p++)</span><br><span class="line">	 &#123;</span><br><span class="line">	 cout&lt;&lt;<span class="string">&quot;110&quot;</span>;</span><br><span class="line">	 &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>仅仅只是两个for循环的嵌套，就能看的出来，将 ‘ { ‘ 推进一行，所带来的观感就变得大不相同。</p>
+<p>当然，可以稍微紧凑一点，因为过长的代码容易分辨不清各个语句的分布，但是请不要将代码堆砌成密不透风的城墙，这样也会影响读代码时候的速度。</p>
+<h3 id="3-输入："><a href="#3-输入：" class="headerlink" title="3.输入："></a>3.输入：</h3><p><em><strong>$\textcolor{Red}{输入数组时，要注意变量名称和变量位置是否正确：}$</strong></em></p>
+<p>例如： y[i]-x[i]，不要写成y[i]-y[i]</p>
+<h2 id="七-删改代码："><a href="#七-删改代码：" class="headerlink" title="七.删改代码："></a>七.删改代码：</h2><p>删改代码的时候，不要进行遗漏，或者误删，在进行删除时，之后要**$\textcolor{Red}{重新进行检查}$**。</p>
+<p>必要的时候通过使用注释来表明点。</p>
+<h2 id="八-多组数据："><a href="#八-多组数据：" class="headerlink" title="八.多组数据："></a>八.多组数据：</h2><p>在有些题目的样例中，并没有举出多组输入，这往往会被人所忽略，在做题前请认真读题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int t;//几组数据</span><br><span class="line">while(t--)&#123;</span><br><span class="line"></span><br><span class="line">&#125;//最外层使用while可以有效的将单组数据的内部循环分清</span><br></pre></td></tr></table></figure>
+
+<p>1.如果要识别换行符：输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cin.get()=&#x27;\n&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>2.循环输入到结束：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whlie(cin&gt;&gt;n)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="九-字符串问题："><a href="#九-字符串问题：" class="headerlink" title="九.字符串问题："></a>九.字符串问题：</h2><p>![](C:\Users\tianmumu\Desktop\Debug Secret Script(秘籍)\图片\image-20241107193258159.png)</p>
+<p>在输入数字字符串的时候；</p>
+<p>虽然输入的是数字，但是存入的确实字符，因此，如果要将数字输出，需要减去字符‘0’</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：b[i]-&#x27;0&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>在字符串题中，我一般使用C++中的string来写</p>
+<h3 id="string函数定义：string-a"><a href="#string函数定义：string-a" class="headerlink" title="string函数定义：string a;"></a>string函数定义：string a;</h3><p>输入（包括空格的输入）getline(cin,a);</p>
+<p>知晓字符串的尺寸 ：a.size()</p>
+<p>开循环单个输出字符串:<br>for(int i&#x3D;0;i&lt;a.size();i++)<br>{<br>    cout&lt;&lt;a[i];<br>}<br>字符串长度length()<br>*******非必要，别tm开那么多的数组，无论是字符串数组，还是正常数组<br>*******数组越界，纯自找的，少给自己整点麻烦事！！！！！！！</p>
+<p>c++中的size()和length()没有区别<br>都能算出字符长度</p>
+<p>string str：生成空字符串</p>
+<p>string s(str)：生成字符串为str的复制品</p>
+<p>string s(str, strbegin,strlen)：将字符串str中从下标strbegin开始、长度为strlen的部分作为字符串初值</p>
+<p>string s(cstr, char_len)：以C_string类型cstr的前char_len个字符串作为字符串s的初值</p>
+<p>string s(num ,c)：生成num个c字符的字符串</p>
+<p>string s(str, stridx)：将字符串str中从下标stridx开始到字符串结束的位置作为字符串初值</p>
+<p>eg:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string str1;               <span class="comment">//生成空字符串</span></span><br><span class="line"><span class="function">string <span class="title">str2</span><span class="params">(<span class="string">&quot;123456789&quot;</span>)</span></span>;  <span class="comment">//生成&quot;1234456789&quot;的复制品</span></span><br><span class="line"><span class="function">string <span class="title">str3</span><span class="params">(<span class="string">&quot;12345&quot;</span>, <span class="number">0</span>, <span class="number">3</span>)</span></span>;<span class="comment">//结果为&quot;123&quot;</span></span><br><span class="line"><span class="function">string <span class="title">str4</span><span class="params">(<span class="string">&quot;012345&quot;</span>, <span class="number">5</span>)</span></span>;  <span class="comment">//结果为&quot;01234&quot;</span></span><br><span class="line"><span class="function">string <span class="title">str5</span><span class="params">(<span class="number">5</span>, <span class="string">&#x27;1&#x27;</span>)</span></span>;       <span class="comment">//结果为&quot;11111&quot;</span></span><br><span class="line"><span class="function">string <span class="title">str6</span><span class="params">(str2, <span class="number">2</span>)</span></span>;      <span class="comment">//结果为&quot;3456789&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol>
+<li>size()和length()：返回string对象的字符个数，他们执行效果相同。</li>
+<li>max_size()：返回string对象最多包含的字符数，超出会抛出length_error异常</li>
+<li>capacity()：重新分配内存之前，string对象能包含的最大字符数</li>
+</ol>
+<p>****string的交换：<br>****void swap(string &amp;s2);  &#x2F;&#x2F;交换当前字符串与s2的值</p>
+<p>string的插入：push_back() 和 insert()<br>void  test4()<br>{<br>    string s1;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 尾插一个字符</span></span><br><span class="line">s<span class="number">1.</span><span class="built_in">push_back</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">s<span class="number">1.</span><span class="built_in">push_back</span>(<span class="string">&#x27;b&#x27;</span>);</span><br><span class="line">s<span class="number">1.</span><span class="built_in">push_back</span>(<span class="string">&#x27;c&#x27;</span>);</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;s1:&quot;</span>&lt;&lt;s1&lt;&lt;endl; <span class="comment">// s1:abc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// insert(pos,char):在制定的位置pos前插入字符char</span></span><br><span class="line">s<span class="number">1.</span><span class="built_in">insert</span>(s<span class="number">1.</span><span class="built_in">begin</span>(),<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;s1:&quot;</span>&lt;&lt;s1&lt;&lt;endl; <span class="comment">// s1:1abc</span></span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<h4 id="C-删除string最后一个字符的几种方法"><a href="#C-删除string最后一个字符的几种方法" class="headerlink" title="C++删除string最后一个字符的几种方法"></a><strong>C++删除string最后一个字符的几种方法</strong></h4><p>#include<iostream><br>#include<string><br>using namespace std;<br>int main()<br>{<br>    string str;<br>    str &#x3D; “123456”;<br>    cout &lt;&lt; str &lt;&lt; endl;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一：使用substr()</span></span><br><span class="line">str = str.<span class="built_in">substr</span>(<span class="number">0</span>, str.<span class="built_in">length</span>() - <span class="number">1</span>);</span><br><span class="line">cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//方法二：使用erase()</span></span><br><span class="line">str.<span class="built_in">erase</span>(str.<span class="built_in">end</span>() - <span class="number">1</span>);</span><br><span class="line">cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//方法三：使用pop_back()</span></span><br><span class="line">str.<span class="built_in">pop_back</span>();</span><br><span class="line">cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<h2 id="十-注意使用函数之后，变量转换的类型："><a href="#十-注意使用函数之后，变量转换的类型：" class="headerlink" title="十.注意使用函数之后，变量转换的类型："></a>十.注意使用函数之后，变量转换的类型：</h2><p>pow( )</p>
+<p>sqrt( )</p>
+<p>需要在函数前面进行强制性转换（long long）</p>
+<p>同时pow( )中，无法使用1&#x2F;3（不是整除的数）</p>
+<h2 id="十一-思维题："><a href="#十一-思维题：" class="headerlink" title="十一.思维题："></a>十一.思维题：</h2><p>在做一些题的时候，注重思维理解，找出简单算法，往往硬算会很困难。</p>
+<h2 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a><em>结尾：</em></h2><p>不难发现，有一些部分的案例很少，由于我自身并不喜欢算法，因而有过一个月的时间不去添加笔记上面的内容了。5000字已经是我现在能写的极限了，再加上算法题未来会很少做，所以我打算就此完结。后续的添加、修改和补充，就留给后面的学弟学妹们吧！而写这个笔记的想法，来自于软件2201的杜金雨，特此也感谢他的C语言速通笔记，在我初学C语言的时候，给了我很大的帮助。</p>
+<p>虽然笔记名称叫做Debug Secret Script但是，我在里面写的不止是这些，可能有点脱离主题，但是为避免再开一个笔记单独讲这些，我还是选择将这一切归纳到一起。从我个人角度来看，这一切应该是值得的，总归是留下了点什么东西。我曾多次陷入迷茫，面对排行不如意，我常常感到失落，在debug过程中，常常因为4、5个小时，让自己崩溃。可能是因为淋过雨，所以便想撑起一把伞吧，我觉得，为了防止有的人再次迷茫，再次面临崩溃，我希望这个笔记能帮助到你们。</p>
+<p>对UIT的每日签题，我有以下几点要求要讲：</p>
+<p>1.切忌上网抄袭，类似题解等东西，其实也不建议看（除非超过四个小时以上未能解开）</p>
+<p>2.切忌注重签题排名，每日签题的目的是为了锻炼你的能力</p>
+<p>3.不要抄身边人的代码，会有人负责查重</p>
+<p>4.不准使用AI辅助做题，在学习阶段，重要的是锻炼你的编码能力</p>
+<p>5.IOI赛制，禁止单次提交超过30次</p>
+<p>​												<em><strong>$\textcolor{red }{不爱算法、不弱算法}$</strong></em></p>
+<p>​																																	—–数技2401田林</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/12/01/Debug%20Secret%20Script(%E7%A7%98%E7%B1%8D)/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
