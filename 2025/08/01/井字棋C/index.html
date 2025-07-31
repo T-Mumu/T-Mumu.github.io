@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 网络 | T-Mumu</title>
+  <title>井字棋C++ | T-Mumu</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="T-Mumu">
-<meta property="og:url" content="http://example.com/tags/%E7%BD%91%E7%BB%9C/index.html">
+  <meta name="description" content="思路：1.绘制图像（O，X，#） ​	    2.判断胜负规则 ​	    3.检测点击，并且在相应位置进行绘画 此代码和网上教程不同，是自己手搓的，在看完教程之后，会进行修改。 感觉本代码槽点： 判断胜负部分的代码不够精简（想着摒弃枚举的办法，但是写下来并不如枚举简单，迅速和整洁） 绘图不够精美，同时在绘制图像部分的代码，并没有做到清除，各个函数之间的调用出现了问题，并没有降低耦合性 自身不足">
+<meta property="og:type" content="article">
+<meta property="og:title" content="井字棋C++">
+<meta property="og:url" content="http://example.com/2025/08/01/%E4%BA%95%E5%AD%97%E6%A3%8BC/index.html">
 <meta property="og:site_name" content="T-Mumu">
+<meta property="og:description" content="思路：1.绘制图像（O，X，#） ​	    2.判断胜负规则 ​	    3.检测点击，并且在相应位置进行绘画 此代码和网上教程不同，是自己手搓的，在看完教程之后，会进行修改。 感觉本代码槽点： 判断胜负部分的代码不够精简（想着摒弃枚举的办法，但是写下来并不如枚举简单，迅速和整洁） 绘图不够精美，同时在绘制图像部分的代码，并没有做到清除，各个函数之间的调用出现了问题，并没有降低耦合性 自身不足">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/08/01/%E4%BA%95%E5%AD%97%E6%A3%8BC/personalFiles/github/hexo/source_posts/%E4%BA%95%E5%AD%97%E6%A3%8BC/image-20250801002630024.png">
+<meta property="article:published_time" content="2025-07-31T16:25:38.000Z">
+<meta property="article:modified_time" content="2025-07-31T16:45:57.252Z">
 <meta property="article:author" content="T Mumu">
+<meta property="article:tag" content="C++游戏">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/08/01/%E4%BA%95%E5%AD%97%E6%A3%8BC/personalFiles/github/hexo/source_posts/%E4%BA%95%E5%AD%97%E6%A3%8BC/image-20250801002630024.png">
   
     <link rel="alternative" href="/atom.xml" title="T-Mumu" type="application/atom+xml">
   
@@ -213,65 +220,278 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-井字棋C" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/07/18/CCleaner/" class="archive-article-date">
-        <time datetime="2025-07-18T04:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-18</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/07/18/CCleaner/" target="_blank">CCleaner解决网络驱动错误</a>
   
+    <h1 class="article-title" itemprop="name">
+      井字棋C++
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/08/01/%E4%BA%95%E5%AD%97%E6%A3%8BC/" class="archive-article-date">
+        <time datetime="2025-07-31T16:25:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-01</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="/2025/08/01/%E4%BA%95%E5%AD%97%E6%A3%8BC/personalFiles\github\hexo\source_posts\井字棋C\image-20250801002630024.png" alt="image-20250801002630024"></p>
+<p>思路：1.绘制图像（O，X，#）</p>
+<p>​	    2.判断胜负规则</p>
+<p>​	    3.检测点击，并且在相应位置进行绘画</p>
+<p>此代码和网上教程不同，是自己手搓的，在看完教程之后，会进行修改。</p>
+<p>感觉本代码槽点：</p>
+<p>判断胜负部分的代码不够精简（想着摒弃枚举的办法，但是写下来并不如枚举简单，迅速和整洁）</p>
+<p>绘图不够精美，同时在绘制图像部分的代码，并没有做到清除，各个函数之间的调用出现了问题，并没有降低耦合性</p>
+<p>自身不足：</p>
+<p>对于EasyX库的使用不够熟悉，同时C++其他常用库并未进行相关的拓展，算法方面还有许多不足，仍需努力</p>
+<p>字符串编码部分尚未了解，有部分代码中的函数尚且不知道为什么要如此使用</p>
+<p>感受：</p>
+<p>此游戏逻辑较为简单，但是实际写起来并不容易，在大脑构思好后却发现，写起来时容易写的十分混乱，不断地重复调用一些函数，经验尚且不足，不过好在成品最终是做出来了，效果也和视频中的效果一样，这令我感到十分的满意，同时使用C++写游戏，我感觉能起到不错的锻炼，这种一步一步搭建的感觉我很喜欢。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;conio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;graphics.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">char</span> date[<span class="number">3</span>][<span class="number">3</span>] = &#123;</span><br><span class="line">	&#123;<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;-&#x27;</span>&#125;,</span><br><span class="line">	&#123;<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;-&#x27;</span>&#125;,</span><br><span class="line">	&#123;<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;-&#x27;</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">char</span> play = <span class="string">&#x27;X&#x27;</span>;</span><br><span class="line"><span class="type">int</span> xx = <span class="number">0</span>, yy = <span class="number">0</span>;</span><br><span class="line"><span class="type">char</span> win = <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Win</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Draw</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">clickGame</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DrowO</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DrowX</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line"><span class="comment">//判断胜负条件</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Win</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//同行，同列，同对角线</span></span><br><span class="line">	<span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">	win = <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">0</span>; p &lt; <span class="number">2</span>; p++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (date[i][p] == date[i][p + <span class="number">1</span>] &amp;&amp; date[i][p] != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">				k++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (k == <span class="number">2</span>) &#123;</span><br><span class="line">			win = date[i][<span class="number">0</span>];</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			k = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">// 1  0,1   2    3</span></span><br><span class="line">	<span class="keyword">if</span> (!k) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">0</span>; p &lt; <span class="number">2</span>; p++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (date[p][i] == date[p + <span class="number">1</span>][i] &amp;&amp; date[p][i] != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">					k++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (k == <span class="number">2</span>) &#123;</span><br><span class="line">				win = date[<span class="number">0</span>][i];</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				k = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!k) &#123;<span class="comment">// 0,0 1,1 2,2     2,0 1,1 0,2</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (date[i][i] == date[i + <span class="number">1</span>][i + <span class="number">1</span>] &amp;&amp; date[i][i] != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">					k++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (k != <span class="number">2</span>) &#123;</span><br><span class="line">				k = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">					<span class="keyword">if</span> (date[<span class="number">2</span> - i][i] == date[<span class="number">2</span> - i - <span class="number">1</span>][i + <span class="number">1</span>] &amp;&amp; date[<span class="number">2</span> - <span class="number">1</span>][i] != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">						k++;</span><br><span class="line">					&#125;</span><br><span class="line">					win = date[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				win = date[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (k != <span class="number">2</span>) &#123;</span><br><span class="line">		k = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		cout &lt;&lt; win &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//true = X  赢</span></span><br><span class="line"><span class="comment">//false = O  赢</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//当前落子</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DrowText</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">static</span> TCHAR str[<span class="number">64</span>];</span><br><span class="line">	_stprintf_s(str, _T(<span class="string">&quot;当前棋子类型：%c&quot;</span>),play);</span><br><span class="line">	<span class="built_in">settextcolor</span>(<span class="built_in">RGB</span>(<span class="number">225</span>,<span class="number">175</span>,<span class="number">45</span>));</span><br><span class="line">	<span class="built_in">outtextxy</span>(<span class="number">20</span>,<span class="number">20</span>,str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//平局判定</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Draw</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> times = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">0</span>; p &lt; <span class="number">3</span>; p++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (date[i][p] != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">				times++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (times == <span class="number">9</span>&amp;&amp;!<span class="built_in">Win</span>()) &#123;</span><br><span class="line">		win = <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//检测点击输入</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">clickGame</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ExMessage msg;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">peekmessage</span>(&amp;msg))</span><br><span class="line">		<span class="keyword">if</span> (msg.message == WM_MOUSEMOVE) &#123;</span><br><span class="line">			xx = msg.x / <span class="number">200</span>;</span><br><span class="line">			yy = msg.y / <span class="number">200</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (msg.message == WM_LBUTTONDOWN) &#123;</span><br><span class="line"></span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;click&quot;</span> &lt;&lt; endl;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;xx=&quot;</span> &lt;&lt; xx &lt;&lt; endl;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;yy=&quot;</span> &lt;&lt; yy &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">if</span> (date[yy][xx] == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">				date[yy][xx] = play;</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;play&quot;</span> &lt;&lt; endl;</span><br><span class="line">				<span class="keyword">if</span> (play == <span class="string">&#x27;X&#x27;</span>)<span class="built_in">DrowX</span>(xx*<span class="number">200</span><span class="number">+100</span>,yy * <span class="number">200</span> + <span class="number">100</span>);</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="built_in">DrowO</span>(xx * <span class="number">200</span> + <span class="number">100</span>,yy * <span class="number">200</span> + <span class="number">100</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				play == <span class="string">&#x27;X&#x27;</span> ? play = <span class="string">&#x27;O&#x27;</span> : play = <span class="string">&#x27;X&#x27;</span>;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//绘图O</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DrowO</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">circle</span>(x, y, <span class="number">100</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//绘图X</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DrowX</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">line</span>(x + <span class="number">100</span>, y + <span class="number">100</span>, x - <span class="number">100</span>, y - <span class="number">100</span>);</span><br><span class="line">	<span class="built_in">line</span>(x - <span class="number">100</span>, y + <span class="number">100</span>, x + <span class="number">100</span>, y - <span class="number">100</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//背景</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">backGround</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">initgraph</span>(<span class="number">600</span>, <span class="number">600</span>);</span><br><span class="line">	<span class="built_in">line</span>(<span class="number">0</span>, <span class="number">200</span>, <span class="number">600</span>, <span class="number">200</span>);</span><br><span class="line">	<span class="built_in">line</span>(<span class="number">0</span>, <span class="number">400</span>, <span class="number">600</span>, <span class="number">400</span>);</span><br><span class="line">	<span class="built_in">line</span>(<span class="number">200</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">600</span>);</span><br><span class="line">	<span class="built_in">line</span>(<span class="number">400</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">600</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ExMessage msg;</span><br><span class="line">	<span class="built_in">backGround</span>();</span><br><span class="line">	<span class="comment">//DrowO(100,100);</span></span><br><span class="line">	<span class="comment">//DrowX(300,300);</span></span><br><span class="line">	<span class="built_in">BeginBatchDraw</span>();</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">Draw</span>()&amp;&amp;!<span class="built_in">Win</span>()) &#123;</span><br><span class="line">		<span class="built_in">clickGame</span>();</span><br><span class="line">		<span class="comment">//cleardevice();</span></span><br><span class="line">		<span class="built_in">DrowText</span>();</span><br><span class="line">		<span class="comment">//backGround();</span></span><br><span class="line">		<span class="built_in">FlushBatchDraw</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(win==<span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">	<span class="built_in">MessageBox</span>(<span class="built_in">GetHWnd</span>(), _T(<span class="string">&quot;X获胜&quot;</span>), _T(<span class="string">&quot;提示&quot;</span>), MB_OK);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(win==<span class="string">&#x27;O&#x27;</span>)	<span class="built_in">MessageBox</span>(<span class="built_in">GetHWnd</span>(), _T(<span class="string">&quot;O获胜&quot;</span>), _T(<span class="string">&quot;提示&quot;</span>), MB_OK);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">MessageBox</span>(<span class="built_in">GetHWnd</span>(), _T(<span class="string">&quot;平局&quot;</span>), _T(<span class="string">&quot;提示&quot;</span>), MB_OK);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;GameOver&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">EndBatchDraw</span>();</span><br><span class="line">	_getch();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          T Mumu
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2025/08/01/井字棋C/" title="井字棋C++" target="_blank">http://example.com/2025/08/01/井字棋C/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    <div class="article-pop-out tagcloud">
+      <i class="icon-tuding"></i>
+      <a class="article-tag-list-link color3">置顶</a>
+    </div>
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C++游戏</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2025/08/01/%E4%BA%95%E5%AD%97%E6%A3%8BC/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2025/07/20/Unity-AR/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity AR</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+<div id="SOHUCS" sid="井字棋C" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -312,9 +532,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
