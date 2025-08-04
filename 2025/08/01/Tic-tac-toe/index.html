@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2025/08/01/Tic-tac-toe/image-20250801020359684.png">
 <meta property="article:published_time" content="2025-07-31T16:25:38.000Z">
-<meta property="article:modified_time" content="2025-08-04T19:40:24.189Z">
+<meta property="article:modified_time" content="2025-08-04T19:44:45.497Z">
 <meta property="article:author" content="T Mumu">
 <meta property="article:tag" content="C++游戏">
 <meta name="twitter:card" content="summary">
@@ -262,7 +262,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">10分</span>
+      <span class="post-count">11分</span>
     </span>
   </span>
 </div>
@@ -282,7 +282,18 @@
 <p>​	    3.检测点击，并且在相应位置进行绘画</p>
 <span id="more"></span>
 
-<!--toc-->
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码：</a></li>
+<li><a href="#%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84">窗口句柄</a></li>
+<li><a href="#%E7%AA%97%E5%8F%A3%E6%B8%B2%E6%9F%93%E7%BC%93%E5%86%B2%E5%8C%BA">窗口渲染缓冲区</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E5%BB%B6%E6%97%B6%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD">动态延时优化性能</a></li>
+<li><a href="#vs%E5%BC%B9%E5%87%BA%E8%AD%A6%E5%91%8A-%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8gettickcount64%E8%80%8C%E4%B8%8D%E6%98%AFgettickcount">VS弹出警告 考虑使用“GetTickCount64”而不是“GetTickCount”。</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8gettickcount64-%E6%89%80%E9%9C%80%E5%AE%8F%E5%AE%9A%E4%B9%89">使用GetTickCount64() 所需宏定义：</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E6%BA%90%E4%BB%A3%E7%A0%81">学习源代码：</a></li>
+</ul>
+<!-- tocstop -->
 
 <p>此代码和网上教程不同，是自己手搓的，在看完教程之后，会进行修改。</p>
 <p>感觉本代码槽点：</p>
